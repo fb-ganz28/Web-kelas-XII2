@@ -1,0 +1,386 @@
+            /* --- CSS VARIABLES & CORE --- */
+            :root {
+                --black-matte: #0a0a0a;
+                --deep-brown: #2d1b13;
+                --neon-copper: #ff7043;
+                --gold-tech: #b8860b;
+                --glass: rgba(45, 27, 19, 0.4);
+                --border-glow: rgba(255, 112, 67, 0.5);
+            }
+    
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                cursor: crosshair;
+            }
+    
+            body {
+                background-color: var(--black-matte);
+                background-image: 
+                    radial-gradient(circle at 20% 30%, #1a0f0a 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, #1a0f0a 0%, transparent 40%),
+                    linear-gradient(rgba(255,112,67,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,112,67,0.05) 1px, transparent 1px);
+                background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+                color: #e0e0e0;
+                font-family: 'Rajdhani', sans-serif;
+                overflow-x: hidden;
+            }
+    
+            /* --- LOGO & NAV --- */
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 80px;
+                background: rgba(10, 10, 10, 0.9);
+                backdrop-filter: blur(15px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 50px;
+                z-index: 1000;
+                border-bottom: 2px solid var(--neon-copper);
+            }
+    
+            .logo {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1.8rem;
+                color: var(--neon-copper);
+                text-shadow: 0 0 15px var(--neon-copper);
+                letter-spacing: 3px;
+                display: flex;
+                align-items: center;
+            }
+    
+            .logo span {
+                color: #fff;
+                margin-left: 10px;
+                font-size: 0.9rem;
+                border-left: 2px solid var(--gold-tech);
+                padding-left: 10px;
+            }
+    
+            nav ul {
+                display: flex;
+                list-style: none;
+            }
+    
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                margin-left: 30px;
+                text-transform: uppercase;
+                font-weight: bold;
+                transition: 0.3s;
+                position: relative;
+            }
+    
+            nav ul li a:hover {
+                color: var(--neon-copper);
+            }
+    
+            /* --- HERO SLIDER --- */
+            .slider-container {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+                margin-top: 80px;
+            }
+    
+            .slide {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: 1s ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-size: cover;
+                background-position: center;
+            }
+    
+            .slide.active { opacity: 1; }
+    
+            .slide::after {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
+            }
+    
+            .slide-content {
+                position: relative;
+                z-index: 10;
+                max-width: 800px;
+                padding: 40px;
+            }
+    
+            .slide-content h1 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 4rem;
+                color: var(--neon-copper);
+                margin-bottom: 20px;
+            }
+    
+            /* --- SHOP SECTION --- */
+            .section-title {
+                text-align: center;
+                padding: 60px 0;
+                background: var(--deep-brown);
+                border-top: 4px double var(--neon-copper);
+            }
+    
+            .shop-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                padding: 50px;
+                background: #000;
+            }
+    
+            .product-card {
+                background: var(--glass);
+                border: 1px solid var(--border-glow);
+                padding: 20px;
+                transition: 0.4s;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .product-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 30px var(--border-glow);
+            }
+    
+            .product-img {
+                width: 100%;
+                height: 200px;
+                background: #1a1a1a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 15px;
+                border: 1px dashed var(--gold-tech);
+            }
+    
+            .btn-buy {
+                width: 100%;
+                padding: 12px;
+                background: var(--neon-copper);
+                border: none;
+                color: #000;
+                font-weight: bold;
+                margin-top: 15px;
+                cursor: pointer;
+                font-family: 'Orbitron';
+            }
+    
+            /* --- MEMORIES MASONRY --- */
+            .memories-container {
+                column-count: 4;
+                column-gap: 15px;
+                padding: 50px;
+                background: var(--black-matte);
+            }
+    
+            .memory-item {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 15px;
+                border: 2px solid var(--deep-brown);
+                filter: grayscale(100%);
+                transition: 0.5s;
+            }
+    
+            .memory-item:hover {
+                filter: grayscale(0%);
+                border-color: var(--neon-copper);
+                transform: scale(1.02);
+            }
+    
+            /* --- SQUAD 34 GRID --- */
+            .squad-section {
+                background: linear-gradient(to bottom, #000, var(--deep-brown));
+                padding: 100px 50px;
+            }
+    
+            .squad-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+    
+            .member-card {
+                background: rgba(0,0,0,0.6);
+                border: 1px solid #333;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: 0.3s;
+            }
+    
+            .member-card:hover {
+                border-color: var(--neon-copper);
+                background: var(--deep-brown);
+            }
+    
+            .member-id {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 0.7rem;
+                color: var(--gold-tech);
+            }
+    
+            .stats {
+                width: 80%;
+                height: 5px;
+                background: #111;
+                margin-top: 10px;
+                position: relative;
+            }
+    
+            .stats-fill {
+                height: 100%;
+                background: var(--neon-copper);
+                width: 0%;
+                transition: 1s;
+            }
+    
+            .member-card:hover .stats-fill { width: 85%; }
+    
+            /* --- FOOTER --- */
+            footer {
+                padding: 50px;
+                background: #050505;
+                text-align: center;
+                border-top: 1px solid var(--deep-brown);
+            }
+    
+            /* --- CART MODAL --- */
+            #cart-modal {
+                position: fixed;
+                right: -400px;
+                top: 0;
+                width: 400px;
+                height: 100%;
+                background: var(--black-matte);
+                border-left: 2px solid var(--neon-copper);
+                z-index: 2000;
+                padding: 30px;
+                transition: 0.5s;
+            }
+    
+            #cart-modal.open { right: 0; }
+    
+            /* Custom Scrollbar */
+            ::-webkit-scrollbar { width: 8px; }
+            ::-webkit-scrollbar-track { background: var(--black-matte); }
+            ::-webkit-scrollbar-thumb { background: var(--neon-copper); border-radius: 5px; }
+            /* ================= RESPONSIVE FIX ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px;
+    }
+
+    .memories-container {
+        column-count: 3;
+        padding: 30px;
+    }
+
+    .squad-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* HP */
+@media (max-width: 768px) {
+
+    header {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    nav ul li a {
+        margin-left: 15px;
+        font-size: 0.8rem;
+    }
+
+    .slider-container {
+        height: 70vh;
+        margin-top: 60px;
+    }
+
+    .slide-content {
+        padding: 20px;
+    }
+
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }
+
+    .product-img {
+        height: 150px;
+    }
+
+    .memories-container {
+        column-count: 2;
+        padding: 20px;
+    }
+
+    .squad-section {
+        padding: 60px 20px;
+    }
+
+    .squad-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #cart-modal {
+        width: 100%;
+    }
+}
+
+
+/* HP kecil */
+@media (max-width: 480px) {
+
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memories-container {
+        column-count: 1;
+    }
+
+    .squad-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slide-content h1 {
+        font-size: 1.5rem;
+    }
+
+}
